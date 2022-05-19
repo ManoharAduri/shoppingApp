@@ -1,0 +1,116 @@
+.navbar_container{
+    min-width: 5rem;
+    min-height: 3rem;
+    background-color: rgba(8, 35, 187, 0.842);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    gap: 0.3rem;
+}
+
+.navbar_title{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    color: white;
+}
+
+.navbar_title p{
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+.product_search{
+    flex: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.product_search input{
+    padding: 0.3rem;
+    width: 100%;
+    flex: 1;
+}
+
+.navbar_buttons{
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    gap: 1rem;
+}
+
+.navbar_buttons button{
+    padding: 0.3rem 1rem;
+    background-color: inherit;
+    color: white;
+    border: none;
+    border: 1px solid grey;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    letter-spacing: 0.1rem;
+    outline: none;
+}
+
+.navbar_buttons button:hover{
+    border: 1px solid white;
+}
+
+.navbar_buttons button:active{
+    transform: translateY(5px);
+}
+
+.cart_button{
+    flex: 0.25;
+    border: 1px solid black;
+    height: 2rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart_button button{
+    width: 6rem;
+    height: 100%;
+    background-color: inherit;
+    border: none;
+    color: white;
+    border: 1px solid grey;
+    font-size: large;
+    margin-right: 0.5rem;
+}
+
+
+.cart_button .cart_count{
+    border: 1px solid white;
+    padding: 0.05rem 0.3rem;
+    border-radius: 0.2rem;
+}
+
+@media screen and (max-width:570px) {
+    .navbar_container{
+        min-height: 12rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }    
+
+    .navbar_buttons{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1rem;
+    }
+
+    .cart_button{
+        margin-bottom: 0.5rem;
+    }
+}

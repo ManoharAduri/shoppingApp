@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import React,{useState} from 'react'
+import Header from './containers/Header';
+import {Routes,Route} from 'react-router-dom'
+import ProductListing from './containers/ProductListing';
+import ProductDetail from './containers/ProductDetail';
+import Cart from './containers/Cart/Cart';
+import Register from './containers/Register';
+import Login from './containers/Login';
 
 function App() {
+  const [cartIsOpen,setCartIsOpen] = useState(false)
+  const [searchTerm,setSearchTerm] = useState('')
+  const cartOpenHandler = () =>{
+    setCartIsOpen(true)
+  }
+
+  const cartCloseHandler = () =>{
+    setCartIsOpen(false)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header onOpen={cartOpenHandler} onProductSearch={(value)=>setSearchTerm(value)}/>
+        <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/products" element={<ProductListing searchTerm={searchTerm}/>}/>
+        <Route path="/product/:productId" element={<ProductDetail/>}/>
+        </Routes>
+        {cartIsOpen && <Cart onClose={cartCloseHandler} />}
+
     </div>
   );
 }
